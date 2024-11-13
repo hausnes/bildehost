@@ -15,4 +15,5 @@ Dette er ein samling med kode som har som mål å:
 `app.js` inneheld kode som startar ein Node JS-server, og opnar ei rute til ei mappe med bilete. Her kan ein sjå bilete som er tatt av PiCamera. Siste bilete er det som blir vist.
 
 ## To-do:
-Lage ei rute som viser til ei side som viser alle bileta i mappa.
+- Lage ei rute som viser til ei side som viser alle bileta i mappa.
+- Forklare nærare korleis ein dynamisk DNS-tjeneste blir brukt for å gjere sida lettare tilgjengeleg for omverda. Eg nyttar [Duck DNS](https://www.duckdns.org/). Denne fungerer slik at ein får ein URL som er lettare å hugse enn ein IP-adresse. DuckDNS oppdaterer IP-adressa til Raspberry PI-en automatisk, slik at ein alltid kan nå sida via URL-en.
