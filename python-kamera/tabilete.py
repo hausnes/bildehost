@@ -11,8 +11,8 @@ picam2.start()
 time.sleep(2)
 filnavn = str(datetime.now()) + ".jpg"
 #print(filnavn) # For testing
-picam2.capture_file("/home/pi/hausnes/bilethost/bileter/" + filnavn) # Endre til riktig sti (og filnavn) for ditt prosjekt
+picam2.capture_file("/home/hausnes/bilethost/bileter/" + filnavn) # Endre til riktig sti (og filnavn) for ditt prosjekt
 
-# Legg til at denne fila skal køyre kvart minutt ved å skrive "crontab -e" i terminalen, og typisk velgje nano som editor.
-# Deretter legg du inn denne linja nederst, på ny linje: * * * * * sudo python3 /home/pi/hausnes/kamera-tidspunkt.py
-# Les meir om korleis du kan få programmet til å køyre på andre tidspunkt på https://crontab.guru/
+# Legg til at denne fila skal køyre så ofte du ynskjer ved å skrive "crontab -e" i terminalen, og typisk velgje nano som editor.
+# Deretter legg du inn denne linja nederst, på ny linje: * * * * * sudo python3 /home/hausnes/bildehost/python-kamera/tabilete.py
+# NB: Les meir om korleis du kan få programmet til å køyre på andre tidspunkt på https://crontab.guru/ (5 stjerner betyr kvart minutt)
