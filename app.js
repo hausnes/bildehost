@@ -75,6 +75,22 @@ app.get('/alle', (req, res) => {
     });
 });
 
+app.get('/bilder', (req, res) => {
+    fs.readdir(imagesDir, (err, files) => {
+        if (err) {
+            return res.status(500).send('Kunne ikke lese bileter-mappen');
+        }
+
+        const imageFiles = files.filter(file => /\.(jpg|jpeg|png|gif)$/.test(file));
+        let html = '<h1>Liste over bilder</h1><ul>';
+        imageFiles.forEach(file => {
+            html += `<li><img src="/bileter/${file}" alt="${file}" style="max-width: 200px;"/><br>${file}</li>`;
+        });
+        html += '</ul>';
+        res.send(html);
+    });
+});
+
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
 });
