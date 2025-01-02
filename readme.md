@@ -26,6 +26,19 @@ Kjelde: [Bogdan Covrig (Dev.to)](https://dev.to/bogdaaamn/run-your-nodejs-applic
     - `pm2 save`
     - Sjekk status ved til dømes `pm2 list` eller `pm2 show app`
 
+### Gjer Node JS-serveren tilgjengeleg
+
+Ynskjer du at du kan sjå bileta frå kor som helst i verda? Då er det relativt enkelt å nytte ein dynamisk DNS-tjeneste.
+Denne blir brukt for å gjere sida lettare tilgjengeleg for omverda, sidan ein ikkje må vite IP-adressa. Eg nyttar [Duck DNS](https://www.duckdns.org/). 
+Denne fungerer slik at ein får ein URL som er lettare å hugse enn ei IP-adresse. DuckDNS oppdaterer IP-adressa til Raspberry PI-en automatisk, slik at ein alltid kan nå sida via URL-en.
+
+1. Lag ei mappe `mkdir duckdns`, og ei fil inne i denne `nano duck.sh`
+2. Lim inn instruksjonen frå Duck DNS, som og inneheld din unike URL og token. NB: Hemmeleg!
+3. Gjer fila mogleg å køyre: `chmod 700 duck.sh`
+4. Test scriptet: `./duck.sh`. Sjekk status: Får du `OK` er alt OK, om det står `KO` er det berre å gje opp. Du kan òg sjekke ved å skrive `cat duck.log`.
+5. Legg scriptet til i crontab: `crontab -e`
+    - `*/5 * * * * ~/duckdns/duck.sh >/dev/null 2>&1 ` (Quiz: Kor ofte køyrer denne?)
+6. Opne routeren din sine innstillingar og slepp gjennom trafikk til porten som applikasjonen køyrer på. I mitt tilfelle kan eg no besøke [hausnes.duckdns.org:3000](http://hausnes.duckdns.org:3000/).
+
 ## To-do:
 - Betre visning av bileter, både på hovedruta og /alle-ruta.
-- Forklare nærare korleis ein dynamisk DNS-tjeneste blir brukt for å gjere sida lettare tilgjengeleg for omverda. Eg nyttar [Duck DNS](https://www.duckdns.org/). Denne fungerer slik at ein får ein URL som er lettare å hugse enn ein IP-adresse. DuckDNS oppdaterer IP-adressa til Raspberry PI-en automatisk, slik at ein alltid kan nå sida via URL-en.
