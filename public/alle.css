@@ -1,36 +1,118 @@
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+:root {
+    color-scheme: dark;
+    --bakgrunn: #0e0e10;
+    --kort: #1a1a1e;
+    --tekst: #f2f2f2;
+    --dempa: #9a9aa3;
+    --kant: rgba(255, 255, 255, 0.15);
+    --gutter: clamp(1rem, 4vw, 3rem);
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin: 0;
+    background-color: var(--bakgrunn);
+    color: var(--tekst);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+header {
+    padding: 2rem var(--gutter) 1rem;
+}
+
+.tilbake {
+    color: var(--dempa);
+    text-decoration: none;
+}
+
+.tilbake:hover {
+    color: var(--tekst);
 }
 
 h1 {
-    margin: 20px 0;
+    margin: 0.5rem 0 1rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
 }
 
-.gallery {
+/* Snarvegar til kvar månad */
+.manadar {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px;
+    gap: 0.5rem;
 }
 
-.image-container {
-    flex: 1 1 calc(25% - 20px);
-    box-sizing: border-box;
-    margin: 10px;
+.manadar a {
+    padding: 0.35rem 0.85rem;
+    border: 1px solid var(--kant);
+    border-radius: 999px;
+    color: var(--tekst);
+    font-size: 0.9rem;
+    text-decoration: none;
 }
 
-.image-container img {
+.manadar a:hover {
+    background: var(--kort);
+}
+
+section {
+    padding: 0 var(--gutter) 2rem;
+}
+
+/* Månadsoverskrifta blir liggande øvst medan ein scrollar gjennom månaden */
+h2 {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin: 0 0 0.75rem;
+    padding: 0.75rem 0;
+    background-color: var(--bakgrunn);
+    font-size: 1.25rem;
+}
+
+h2 small {
+    color: var(--dempa);
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.galleri {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+    gap: 0.75rem;
+}
+
+.bilete {
+    display: block;
+    overflow: hidden;
+    border-radius: 8px;
+    background: var(--kort);
+    color: inherit;
+    text-decoration: none;
+}
+
+.bilete img {
+    display: block;
     width: 100%;
     height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: #222;
+    transition: opacity 0.2s ease;
+}
+
+.bilete:hover img {
+    opacity: 0.85;
+}
+
+.bilete span {
     display: block;
+    padding: 0.5rem 0.65rem;
+    color: var(--dempa);
+    font-size: 0.85rem;
 }

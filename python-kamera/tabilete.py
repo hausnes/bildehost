@@ -14,5 +14,6 @@ filnavn = str(datetime.now()) + ".jpg"
 picam2.capture_file("/home/hausnes/bilethost/bileter/" + filnavn) # Endre til riktig sti (og filnavn) for ditt prosjekt
 
 # Legg til at denne fila skal køyre så ofte du ynskjer ved å skrive "crontab -e" i terminalen, og typisk velgje nano som editor.
-# Deretter legg du inn denne linja nederst, på ny linje: * * * * * sudo python3 /home/hausnes/bildehost/python-kamera/tabilete.py
+# Deretter legg du inn denne linja nederst, på ny linje (tek bilete kl. 9, 12 og 16, og lagar miniatyrbilete etterpå):
+# 0 9,12,16 * * * python3 /home/hausnes/bildehost/python-kamera/tabilete.py && python3 /home/hausnes/bildehost/python-kamera/lag_miniatyrar.py
 # NB: Les meir om korleis du kan få programmet til å køyre på andre tidspunkt på https://crontab.guru/ (5 stjerner betyr kvart minutt)

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +7,15 @@
     <link rel="stylesheet" href="alle.css">
 </head>
 <body>
-    <h1>Alle bileta per no</h1>
-    <div class="gallery">
+    <header>
+        <a class="tilbake" href="/">← Siste bilete</a>
+        <h1>Alle bileta</h1>
+        <nav class="manadar">
+            {{MONTH_LINKS}}
+        </nav>
+    </header>
+    <main>
         {{IMAGE_GALLERY}}
-    </div>
+    </main>
 </body>
 </html>
