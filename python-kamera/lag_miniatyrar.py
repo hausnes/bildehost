@@ -7,7 +7,7 @@ from PIL import Image
 
 BILETMAPPE = Path(__file__).resolve().parent.parent / "bileter"
 MINIATYRMAPPE = BILETMAPPE / "thumbs"
-STORLEIK = (480, 270)  # Maks breidd og høgd. Forholdet mellom sidene blir behalde.
+STORLEIK = (480, 360)  # Maks breidd og høgd. Forholdet mellom sidene blir behalde.
 FILTYPAR = {".jpg", ".jpeg", ".png"}
 
 MINIATYRMAPPE.mkdir(exist_ok=True)

@@ -106,7 +106,7 @@ app.get('/alle', async (req, res) => {
         const galleri = [...manadar].map(([id, manad]) => {
             const bileteTags = manad.bileter.map(bilete => `
                 <a class="bilete" href="${bilete.src}">
-                    <img src="${bilete.miniatyr}" alt="Bilete tatt ${formatTid.format(bilete.tid)}" loading="lazy" decoding="async" width="480" height="270">
+                    <img src="${bilete.miniatyr}" alt="Bilete tatt ${formatTid.format(bilete.tid)}" loading="lazy" decoding="async" width="480" height="360">
                     <span>${formatKortTid.format(bilete.tid)}</span>
                 </a>`).join('');
 

@@ -10,14 +10,14 @@ Dette er ein samling med kode som har som mål å:
 
 `tabilete.py` (i mappa python-kamera) inneheld kode som tek eit bilete, og lagrar det i mappa bileter. Kvart bilete får eit unikt namn, basert på tidspunktet det blei tatt. Bileta blir lagra som .jpg-filer.
 
-`lag_miniatyrar.py` (i same mappe) lagar små miniatyrbilete (480 × 270 pikslar) av bileta, og lagrar dei i `bileter/thumbs`. Miniatyrane blir brukte på /alle-ruta, slik at sida lastar raskt sjølv med dårleg nett. Bilete som allereie har ein miniatyr blir hoppa over, så scriptet kan trygt køyrast så ofte ein vil. Scriptet nyttar Pillow, som vanlegvis er installert på Raspberry PI OS (om ikkje: `sudo apt install python3-pil`).
+`lag_miniatyrar.py` (i same mappe) lagar små miniatyrbilete (480 × 360 pikslar) av bileta, og lagrar dei i `bileter/thumbs`. Miniatyrane blir brukte på /alle-ruta, slik at sida lastar raskt sjølv med dårleg nett. Bilete som allereie har ein miniatyr blir hoppa over, så scriptet kan trygt køyrast så ofte ein vil. Scriptet nyttar Pillow, som vanlegvis er installert på Raspberry PI OS (om ikkje: `sudo apt install python3-pil`).
 
 #### Lage miniatyrar av bileta du allereie har
 
 Har du bileter frå før, køyrer du scriptet éin gong for hand. Det kan ta eit par minutt om det er mange bileter.
 
 ```
-python3 /home/hausnes/bildehost/python-kamera/lag_miniatyrar.py
+python3 /home/hausnes/bildehost/bildehost/python-kamera/lag_miniatyrar.py
 ```
 
 #### Ta bileter automatisk
@@ -25,7 +25,7 @@ python3 /home/hausnes/bildehost/python-kamera/lag_miniatyrar.py
 Legg inn denne linja i crontab (`crontab -e`) for å ta bilete kl. 9, 12 og 16, og lage miniatyr rett etterpå:
 
 ```
-0 9,12,16 * * * python3 /home/hausnes/bildehost/python-kamera/tabilete.py && python3 /home/hausnes/bildehost/python-kamera/lag_miniatyrar.py
+0 9,12,16 * * * python3 /home/hausnes/bildehost/bildehost/python-kamera/tabilete.py && python3 /home/hausnes/bildehost/bildehost/python-kamera/lag_miniatyrar.py
 ```
 
 Endre stiane slik at dei passar der du har lagt prosjektet. Sjå [crontab.guru](https://crontab.guru/) for andre tidspunkt.

@@ -100,7 +100,7 @@ h2 small {
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 4 / 3;
     object-fit: cover;
     background: #222;
     transition: opacity 0.2s ease;
